@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <title>Spongebob Hangman</title>
+    </head>
+    <body>
+        <!--User presses any key to start game.
+            User makes choice. Capture choice. 
+            Correct letter=display letter on blank spot. Number of guesses stay the same.
+            When all letters guessed correctly:
+            -display number of win under "Wins".
+            -image on the left pops up.
+            -words pop up.
+            -game generates new word for user to guess.
+            Wrong letter=display letters on bottom under "Letters Already Guessed" 
+            Wrong letter=Number of guesses decrease under "Number of Guesses Remaining"
+            Pressing the same letter twice is prevented.
+            When running out of letters:
+            -display "Game Over"
+            -game generates new word for user to guess.
+            -->
+
+        <div class="container">
+            <header>
+                <h1>HANGMAN</h1>
+            </header>
+            <h3>Spongebob Edition</h3><br>
+            <img src="assets/images/spongebob-logo.jpg" alt="spongeboblogo"><br><br>
+        </div>
+
+        <div class="gameplay">
+            <img id="hangmanImage" src="" alt="" >
+            <img id="game-over" src="assets/images/game-over.png" alt="game over">
+            <h2 id="TryAgain">Press Any Key to Start Over!</h2>
+
+        </div>
+
+        <div class="content">
+            <h3 id="begin">Press Any Key to Get Started!</h3><br>
+            <h4>Wins</h4><br>
+            <!--Display no. of wins here-->
+            <h4 id="totalWins"></h4><br>
+            <h4>Current Word</h4><br>
+            <!--Display blank underscores here-->
+            <h4 id="currentWord"></h4><br>
+            <h4 id="underScore"></h4><br>
+            <h4>Number of Guesses Remaining</h4><br>
+            <!--Display no. here-->
+            <h4 id="remainingGuesses"></h4><br>
+            <h4>Letters Already Guessed</h4><br><br><br>
+            <!--Display letters here-->
+            <h4 id="guessedLetters"></h4>
+        </div>
+
+        <script type="text/javascript" src="assets/javascript/game.js">
+            resetGame();
+            updateDisplay()
+        </script>
+
+    </body>
+
+</html>
+
+
