@@ -23,11 +23,13 @@ const wordBank =   // array of Words
     let wins = 0;
     let guessesLeft = 13;
 
+    //currentWord = underScore[chosenWord];
+
     console.log(chosenWord);
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     guessedLetters = document.getElementById("guessedLetters");
-    currentWord = document.getElementById("currentWord");
+    currentWord = document.getElementById("underScore");
     underScore = document.getElementById("underScore");
     remainingGuesses = document.getElementById("remainingGuesses");
     totalWins = document.getElementById("totalWins");
@@ -60,36 +62,52 @@ const wordBank =   // array of Words
     document.getElementById("game-over").style.cssText= "display: none";
 
 
-    // This replaces underscores with the correct letters. 
-    // chosenWord.length = how many letters in the word.
+    // New Method for underscore replacement
+    //if(currentWord.textContent = underScore)addEventListener('keydown', function(event) {
+      //  underScore.textContent = indexOf(chosenWord);
+    //})
+
+    //This replaces underscores with the correct letters. 
+    //chosenWord.length = how many letters in the word.
     let generateUnderscore = () => {
-        for(let i = 0; i < chosenWord.length; i++) {
-            underScore.push('_');
+      for(let i = 0; i < chosenWord.length; i++) {
+           underScore.push('_');
         }
         return underScore;
+        
     }
+      console.log(generateUnderscore());
 
-    if(currentWord === chosenWord.length) {
-        totalWins++
-    }
+        document.addEventListener('keydown', (event) => {
+        underScore = document.getElementById("underScore").innerHTML; 
+        currentWord = underScore.replace(underScore, chosenWord.length);
+        document.getElementById("underScore").innerHTML = chosenWord;
+    })
 
-    console.log(generateUnderscore());
-
-    document.addEventListener('keydown', (event) => {
-        let keyword = String.fromCharCode(event.keyCode);
-        // if user's guess is correct
-        if(chosenWord.indexOf(keyword) > -1) {
+   // document.addEventListener('keydown', (event) => {
+      //  let keyword = String.fromCharCode(event.keyCode);
+       // if(chosenWord.indexOf(keyword) > -1) {
         // add to current words array
-            currentWord.push(keyword);
-            underScore[chosenWord.indexOf(keyword)] = keyword;
-            console.log(currentWord);
+       // currentWord.push(keyword);
+        // replaces underscore with correct letter
+       // underScore[chosenWord.indexOf(keyword)] = keyword;
+       // if(underScore.join('') == chosenWord) {
+       //     wins++
+       // }
+       // console.log(underScore);
+       // console.log(keyword);
+       // guessedLetters.push(keyword); 
+   // }
+        //console.log(guessedLetters);
+        
+        
+   // });
+
     
-            guessedLetters.push(keyword); 
-            console.log(guessedLetters);
-            console.log(underScore);
-        }
-      
-    });
+
+    //if(currentWord === chosenWord.length) {
+        //totalWins++
+    //}
     
     // Update display on HTML page
    
