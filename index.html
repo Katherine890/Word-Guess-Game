@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
         <title>Spongebob Hangman</title>
     </head>
-    <body>
+    <body id="hangmanGame">
         <!--User presses any key to start game.
             User makes choice. Capture choice. 
             Correct letter=display letter on blank spot. Number of guesses stay the same.
@@ -24,7 +24,7 @@
             -game generates new word for user to guess.
             -->
 
-        <div class="container">
+        <div class="container" id="gameContainer">
             <header>
                 <h1>HANGMAN</h1>
             </header>
@@ -34,29 +34,46 @@
 
         <div class="gameplay">
             <img id="hangmanImage" src="" alt="" >
-            <img id="game-over" src="assets/images/game-over.png" alt="game over">
-            <h2 id="TryAgain">Press Any Key to Start Over!</h2>
 
         </div>
 
         <div class="content">
             <h3 id="begin">Press Any Key to Get Started!</h3><br>
-            <h4>Wins</h4><br>
-            <!--Display no. of wins here-->
-            <h4 id="totalWins"></h4><br>
-            <h4>Current Word</h4><br>
-            <!--Display blank underscores here-->
-            <h4 id="underScore"></h4><br>
-            <h4>Number of Guesses Remaining</h4><br>
-            <!--Display no. here-->
-            <h4 id="remainingGuesses"></h4><br>
-            <h4>Letters Already Guessed</h4><br><br><br>
-            <!--Display letters here-->
-            <h4 id="guessedLetters"></h4>
+            <div id="startGame">
+                <h4>Wins</h4><br>
+                <!--Display no. of wins here-->
+                <h4 id="totalWins">0</h4><br>
+
+                <h4>Current Word</h4><br>
+                <!--Display blank underscores here-->
+                <p id="currentWord"></p> 
+                <form name="guessField"><br>
+                
+                <h4>Number of Guesses Remaining</h4><br>
+                <!--Display no. here-->
+                <h4 id="remainingGuesses"></h4><br>
+                
+                <h4>Letters Already Guessed</h4><br>
+                <p id="wrongLetterContainer"></p><br>
+                <!--Display letters here-->
+                <div id="submissionArea">
+                    <input name="guessBox" type="text" size="5" maxlength="1">
+                    <input name="guessedLetters" type="button" value="Guess" onClick="matchLetter();">
+                </div>
+                <div id="gameOver">
+                    <h4><strong>UH OH! Looks like you're out of chances.</strong></h4>
+                    <input name="resetButton" type="button" value="Try Again" onClick="startOver();">
+                </div>
+                <div id="roundWon">
+                    <h4><strong>Congratulations</strong></h4>
+                    <input name="resetButton" type="button" value="Play Again" onClick="startOver();">
+                </div>
+            </form>
+            </div>
         </div>
 
         <script type="text/javascript" src="assets/javascript/game.js">
-            resetGame();
+            reset();
             updateDisplay()
         </script>
 
